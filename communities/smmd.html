@@ -74,6 +74,17 @@
   .about-body p { color: var(--gray-800); font-size: 1rem; line-height: 1.8; margin-bottom: 16px; }
   .about-body a { color: var(--teal); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color var(--transition); }
   .about-body a:hover { border-bottom-color: var(--teal); }
+
+  .about-grid-instagram {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+  .behold-wrap { min-width: 0; }
+  @media (max-width: 768px) {
+    .about-grid-instagram { grid-template-columns: 1fr; }
+  }
   .instagram-btn { display: inline-flex; align-items: center; gap: 8px; margin-top: 8px; padding: 10px 20px; background: var(--teal); color: var(--white); text-decoration: none; font-family: var(--font-head); font-size: 0.9rem; letter-spacing: 0.12em; border-radius: var(--radius-sm); transition: background var(--transition); }
   .instagram-btn:hover { background: var(--teal-dark); border-bottom: none; }
 
@@ -105,21 +116,21 @@
 <body>
 
 <nav>
-  <a href="../index.html" class="nav-logo">STREET<span>MEET</span></a>
+  <a href="streetmeet.html" class="nav-logo">STREET<span>MEET</span></a>
   <button class="hamburger" onclick="document.getElementById('nav-links').classList.toggle('open')" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
   <ul class="nav-links" id="nav-links">
-    <li><a href="../index.html">Home</a></li>
+    <li><a href="streetmeet.html">Home</a></li>
     <li class="nav-dropdown">
       <a href="#">Communities ▾</a>
       <div class="nav-dropdown-menu">
-        <a href="./smdc.html">StreetMeetDC</a>
-        <a href="./smwa.html">StreetMeetWA</a>
-        <a href="./smmd.html">StreetMeetMD</a>
+        <a href="smdc.html">StreetMeetDC</a>
+        <a href="smwa.html">StreetMeetWA</a>
+        <a href="smmd.html">StreetMeetMD</a>
       </div>
     </li>
-    <li><a href="../index.html#contact">Contact</a></li>
+    <li><a href="streetmeet.html#contact">Contact</a></li>
   </ul>
 </nav>
 
@@ -131,9 +142,20 @@
 <!-- ABOUT -->
 <section class="section">
   <div class="container">
-    <div class="about-body reveal">
-      <p>StreetMeet MD is our latest community. Led by Rafael Ortegano, Ned MacFadden, and Malik, the community connects photographers, models, and visual artists from Baltimore to Annapolis and the suburbs of the DMV.</p>
-      <p><a href="https://www.instagram.com/streetmeetmd/" target="_blank">Follow StreetMeetMD on Instagram</a> for upcoming events and updates.</p>
+    <div class="about-grid-instagram">
+      <div class="about-body reveal">
+        <p>StreetMeet MD is our latest community. Led by Rafael Ortegano, Ned MacFadden, and Malik, the community connects photographers, models, and visual artists from Baltimore to Annapolis and the suburbs of the DMV.</p>
+        <p><a href="https://www.instagram.com/streetmeetmd/" target="_blank">Follow StreetMeetMD on Instagram</a> for upcoming events and updates.</p>
+      </div>
+      <div class="behold-wrap reveal">
+        <behold-widget feed-id="9XQ6g7bOw4HVgaESzu7q"></behold-widget>
+        <script>
+          (() => {
+            const d=document,s=d.createElement("script");s.type="module";
+            s.src="https://w.behold.so/widget.js";d.head.append(s);
+          })();
+        </script>
+      </div>
     </div>
   </div>
 </section>

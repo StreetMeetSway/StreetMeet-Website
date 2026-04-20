@@ -72,6 +72,16 @@
   .section-title { font-family: var(--font-head); font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: 0.03em; margin-bottom: 24px; line-height: 1; }
 
   /* ABOUT */
+  .about-grid-instagram {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+  .behold-wrap { min-width: 0; }
+  @media (max-width: 768px) {
+    .about-grid-instagram { grid-template-columns: 1fr; }
+  }
   .about-body { max-width: 700px; }
   .about-body p { color: var(--gray-800); font-size: 1rem; line-height: 1.8; margin-bottom: 16px; }
   .about-body a { color: var(--teal); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color var(--transition); }
@@ -110,21 +120,21 @@
 <body>
 
 <nav>
-  <a href="../index.html" class="nav-logo">STREET<span>MEET</span></a>
+  <a href="streetmeet.html" class="nav-logo">STREET<span>MEET</span></a>
   <button class="hamburger" onclick="document.getElementById('nav-links').classList.toggle('open')" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
   <ul class="nav-links" id="nav-links">
-    <li><a href="../index.html">Home</a></li>
+    <li><a href="streetmeet.html">Home</a></li>
     <li class="nav-dropdown">
       <a href="#">Communities ▾</a>
       <div class="nav-dropdown-menu">
-        <a href="./smdc.html">StreetMeetDC</a>
-        <a href="./smwa.html">StreetMeetWA</a>
-        <a href="./smmd.html">StreetMeetMD</a>
+        <a href="smdc.html">StreetMeetDC</a>
+        <a href="smwa.html">StreetMeetWA</a>
+        <a href="smmd.html">StreetMeetMD</a>
       </div>
     </li>
-    <li><a href="../index.html#contact">Contact</a></li>
+    <li><a href="streetmeet.html#contact">Contact</a></li>
   </ul>
 </nav>
 
@@ -136,8 +146,19 @@
 <!-- ABOUT -->
 <section class="section">
   <div class="container">
-    <div class="about-body reveal">
-      <p>StreetMeet DC has served as the original home of StreetMeet — and over more than a decade, it has grown into one of the DMV's most active communities for photographers, models, and visual storytellers. Today, the community is led by photographer and visual artist Kevin Wayne and multidisciplinary artist DeVante Capers. We invite you to be part of the community.<br><br>Stay up to date on events and announcements by following <a href="https://www.instagram.com/streetmeetdc/" target="_blank">StreetMeetDC on Instagram</a>.</p>
+    <div class="about-grid-instagram">
+      <div class="about-body reveal">
+        <p>StreetMeet DC has served as the original home of StreetMeet — and over more than a decade, it has grown into one of the DMV's most active communities for photographers, models, and visual storytellers. Today, the community is led by photographer and visual artist Kevin Wayne and multidisciplinary artist DeVante Capers. We invite you to be part of the community.<br><br>Stay up to date on events and announcements by following <a href="https://www.instagram.com/streetmeetdc/" target="_blank">StreetMeetDC on Instagram</a>.</p>
+      </div>
+      <div class="behold-wrap reveal">
+        <behold-widget feed-id="BcVCcprBmCkLZ3LwUR6d"></behold-widget>
+        <script>
+          (() => {
+            const d=document,s=d.createElement("script");s.type="module";
+            s.src="https://w.behold.so/widget.js";d.head.append(s);
+          })();
+        </script>
+      </div>
     </div>
   </div>
 </section>
