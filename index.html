@@ -309,9 +309,10 @@
   }
 
   .about-text p {
-    color: var(--gray-800);
-    line-height: 1.8;
-    font-size: 1rem;
+    color: var(--black);
+    line-height: 1.75;
+    font-size: 1.2rem;
+    font-weight: 500;
     margin-bottom: 16px;
   }
 
@@ -326,6 +327,7 @@
     gap: 8px;
     position: relative;
     overflow: hidden;
+    padding: 40px;
   }
 
   .about-visual::before {
@@ -418,7 +420,7 @@
 
   .community-code {
     font-family: var(--font-head);
-    font-size: 3rem;
+    font-size: 1.75rem;
     color: var(--teal);
     letter-spacing: 0.05em;
     margin-bottom: 8px;
@@ -763,22 +765,13 @@
         <div class="section-label">About Us</div>
         <p>We're dedicated to connecting photographers, models, and videographers through accessible, inclusive events. We exist to lower the barriers to creative collaboration — and to help talented people find their people.</p>
       </div>
-      <div class="about-visual reveal">
-        <div class="about-visual-title">SM</div>
-        <div class="about-visual-sub">PUT THE CITY ON</div>
-        <div class="about-visual-year">EST. 2015</div>
+      <div class="about-visual reveal" id="how">
+        <div class="section-label" style="margin-bottom:16px;">How It Works</div>
+        <div class="how-body">
+          <p>Each month, StreetMeet hosts a free meetup open to creatives at every experience level. Our events are intentionally accessible — no membership fees, no prerequisites, just a shared interest in creating.</p>
+          <p>When you arrive, your host will walk you through the format for the day. From there, it's about meeting fellow creatives, collaborating in real time, and leaving with new connections and new work.</p>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- HOW IT WORKS -->
-<section id="how" class="section">
-  <div class="container">
-    <div class="section-label reveal">How It Works</div>
-    <div class="how-body reveal">
-      <p>Each month, StreetMeet hosts a free meetup open to creatives at every experience level. Our events are intentionally accessible — no membership fees, no prerequisites, just a shared interest in creating.</p>
-      <p>When you arrive, your host will walk you through the format for the day. From there, it's about meeting fellow creatives, collaborating in real time, and leaving with new connections and new work.</p>
     </div>
   </div>
 </section>
@@ -824,24 +817,24 @@
           <p style="margin-top:12px;">Complete the form to tell us about yourself and your city.</p>
         </div>
       </div>
-      <form class="contact-form reveal" onsubmit="submitContact(event)">
+      <form class="contact-form reveal" onsubmit="submitContact(event)" action="mailto:info@streetmeet.com" method="POST" enctype="text/plain">
         <div class="form-row">
           <div>
             <label>First Name</label>
-            <input type="text" placeholder="First Name" required>
+            <input type="text" name="First Name" placeholder="First Name" required>
           </div>
           <div>
             <label>Last Name</label>
-            <input type="text" placeholder="Last Name" required>
+            <input type="text" name="Last Name" placeholder="Last Name" required>
           </div>
         </div>
         <div>
           <label>Email Address</label>
-          <input type="email" placeholder="you@example.com" required>
+          <input type="email" name="Email" placeholder="you@example.com" required>
         </div>
         <div>
           <label>Subject</label>
-          <select>
+          <select name="Subject">
             <option value="">Select a subject...</option>
             <option>Start a Community</option>
             <option>General Inquiry</option>
@@ -852,7 +845,7 @@
         </div>
         <div>
           <label>Message</label>
-          <textarea placeholder="Your message..."></textarea>
+          <textarea name="Message" placeholder="Your message..."></textarea>
         </div>
         <button type="submit" class="btn btn-primary">SEND MESSAGE</button>
       </form>
@@ -1011,9 +1004,14 @@
 
   // ── CONTACT ──
   function submitContact(e) {
+    const form = e.target;
+    const data = new FormData(form);
+    const body = [...data.entries()].map(([k, v]) => k + ': ' + v).join('%0D%0A');
+    const subject = data.get('Subject') || 'StreetMeet Contact Form';
+    window.location.href = 'mailto:info@streetmeet.com?subject=' + encodeURIComponent(subject) + '&body=' + body;
+    showToast('Opening your email client to send your message.');
+    setTimeout(() => form.reset(), 1000);
     e.preventDefault();
-    showToast('Message sent! We\'ll be in touch.');
-    e.target.reset();
   }
 
   // ── SCROLL REVEAL ──
