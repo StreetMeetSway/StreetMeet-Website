@@ -457,13 +457,14 @@
 
   .contact-grid {
     display: grid;
-    grid-template-columns: 1fr 1.4fr;
+    grid-template-columns: 1fr 1fr;
     gap: 64px;
     align-items: start;
   }
 
   .contact-info {}
-  .contact-info p { color: var(--gray-600); font-size: 0.95rem; line-height: 1.8; margin-bottom: 24px; }
+  .contact-info .btn { margin-bottom: 32px; display: inline-block; }
+  .contact-info p { color: var(--gray-600); font-size: 1.2rem; line-height: 1.75; font-weight: 500; margin-bottom: 24px; }
 
   .contact-highlight {
     background: var(--black);
@@ -735,7 +736,6 @@
   </button>
 
   <ul class="nav-links" id="nav-links">
-    <li><a href="index.html" onclick="closeMobile()">Home</a></li>
     <li class="nav-dropdown">
       <a href="#communities" onclick="closeMobile()">Communities ▾</a>
       <div class="nav-dropdown-menu">
@@ -793,7 +793,7 @@
       </a>
       <a href="communities/smmd.html" class="community-card">
         <span class="community-code">StreetMeetMD</span>
-        <p class="community-desc">Serving the diverse creative communities of Maryland. Join the movement and connect with local talent near you.</p>
+        <p class="community-desc">Serving the creative communities of Maryland. Join us and connect with the local communities.</p>
         <span class="community-action">View Community →</span>
       </a>
     </div>
@@ -809,46 +809,14 @@
   <div class="container">
     <div class="contact-grid">
       <div class="contact-info reveal">
-        <div class="section-label">Get In Touch</div>
-        <p>For partnerships, press, sponsorship opportunities, or any other questions, reach out using the form and we'll get back to you.</p>
-        <div class="contact-highlight">
-          <div class="contact-highlight-title">START A COMMUNITY</div>
-          <p>We're actively expanding and looking for dedicated organizers who want to build a creative community where they live. If you have a background in photography, modeling, or videography and a genuine interest in fostering local connections, we'd love to connect.</p>
-          <p style="margin-top:12px;">Complete the form to tell us about yourself and your city.</p>
-        </div>
+        <a href="mailto:info@streetmeet.com" class="btn btn-primary">Get In Touch</a>
+        <p>For partnerships, press, sponsorship opportunities, or any other questions, reach out and we'll get back to you.</p>
       </div>
-      <form class="contact-form reveal" onsubmit="submitContact(event)" action="mailto:info@streetmeet.com" method="POST" enctype="text/plain">
-        <div class="form-row">
-          <div>
-            <label>First Name</label>
-            <input type="text" name="First Name" placeholder="First Name" required>
-          </div>
-          <div>
-            <label>Last Name</label>
-            <input type="text" name="Last Name" placeholder="Last Name" required>
-          </div>
-        </div>
-        <div>
-          <label>Email Address</label>
-          <input type="email" name="Email" placeholder="you@example.com" required>
-        </div>
-        <div>
-          <label>Subject</label>
-          <select name="Subject">
-            <option value="">Select a subject...</option>
-            <option>Start a Community</option>
-            <option>General Inquiry</option>
-            <option>Partnership / Sponsorship</option>
-            <option>Press</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div>
-          <label>Message</label>
-          <textarea name="Message" placeholder="Your message..."></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">SEND MESSAGE</button>
-      </form>
+      <div class="contact-highlight reveal">
+        <div class="contact-highlight-title">START A COMMUNITY</div>
+        <p>We're actively expanding and looking for dedicated organizers who want to build a creative community where they live. If you have a background in photography, modeling, or videography and a genuine interest in fostering local connections, we'd love to connect.</p>
+        <p style="margin-top:12px;">Reach out to tell us about yourself and your city.</p>
+      </div>
     </div>
   </div>
 </section>
